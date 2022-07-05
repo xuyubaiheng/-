@@ -1,0 +1,46 @@
+# Project: 项目2
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o phone_card.o phone_people.o phone_adress.o card_adress.o users.o Uimenu.o
+LINKOBJ  = main.o phone_card.o phone_people.o phone_adress.o card_adress.o users.o Uimenu.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = 项目2.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+phone_card.o: phone_card.cpp
+	$(CPP) -c phone_card.cpp -o phone_card.o $(CXXFLAGS)
+
+phone_people.o: phone_people.cpp
+	$(CPP) -c phone_people.cpp -o phone_people.o $(CXXFLAGS)
+
+phone_adress.o: phone_adress.cpp
+	$(CPP) -c phone_adress.cpp -o phone_adress.o $(CXXFLAGS)
+
+card_adress.o: card_adress.cpp
+	$(CPP) -c card_adress.cpp -o card_adress.o $(CXXFLAGS)
+
+users.o: users.cpp
+	$(CPP) -c users.cpp -o users.o $(CXXFLAGS)
+
+Uimenu.o: Uimenu.cpp
+	$(CPP) -c Uimenu.cpp -o Uimenu.o $(CXXFLAGS)
